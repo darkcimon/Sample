@@ -88,7 +88,7 @@ public class Item
                 this.m_PosX -= this.dirX;
                 this.goY = 0;
                 if (this.m_PosY == this.endY) {
-                    break label278;
+                    return;
                 }
                 this.m_PosY -= this.dirY;
                 this.goX = 0;
@@ -99,11 +99,11 @@ public class Item
         {
             for (;;)
             {
-                return;
+//                return;
                 this.goY += 1;
             }
-            this.goX += 1;
-            return;
+//            this.goX += 1;
+//            return;
         }
         this.m_PosX -= 10;
     }
@@ -136,7 +136,7 @@ public class Item
         {
             this.m_dPosX += (float)this.CosTBL[this.angle] * 3.0F;
             this.m_dPosY += (float)this.SinTBL[this.angle] * 3.0F;
-            return;
+//            return;
             this.angle = 0;
         }
     }
@@ -160,7 +160,7 @@ public class Item
                 paramCanvas.drawBitmap(this.m_Img, this.SrcRect[this.m_selectMotionNum][this.m_SpriteData[this.m_selectMotionNum].m_CurrentFrame], this.dst, null);
                 return;
         }
-        paramCanvas.drawBitmap(this.m_Img, this.SrcRect[this.m_selectMotionNum][this.m_SpriteData[this.m_selectMotionNum].m_CurrentFrame], this.dstF, null);
+//        paramCanvas.drawBitmap(this.m_Img, this.SrcRect[this.m_selectMotionNum][this.m_SpriteData[this.m_selectMotionNum].m_CurrentFrame], this.dstF, null);
     }
 
     public int getDie()
@@ -198,7 +198,7 @@ public class Item
                 createSprite(0, 4, 0, 240, 47, 48, 10);
                 return;
         }
-        createSprite(0, 4, 0, 288, 47, 48, 10);
+//        createSprite(0, 4, 0, 288, 47, 48, 10);
     }
 
     public void setData(int paramInt1, int paramInt2, int paramInt3, int paramInt4, int paramInt5)
@@ -246,16 +246,16 @@ public class Item
                 default:
                     this.dst = new Rect(this.m_PosX, this.m_PosY, this.m_PosX + i, this.m_PosY + j);
                     this.dstF = new RectF(this.dst);
-                    return;
+//                    return;
                 _moveThree();
-                continue;
+//                continue;
                 _moveOne();
-                continue;
+//                continue;
                 _moveTwo();
-                continue;
+//                continue;
                 _moveFour();
             }
         }
-        this.dstF = new RectF((float)this.m_dPosX, (float)this.m_dPosY, (float)this.m_dPosX + i, (float)this.m_dPosY + j);
+//        this.dstF = new RectF((float)this.m_dPosX, (float)this.m_dPosY, (float)this.m_dPosX + i, (float)this.m_dPosY + j);
     }
 }

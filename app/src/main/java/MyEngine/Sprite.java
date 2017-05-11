@@ -102,7 +102,7 @@ public class Sprite
 
     public void updateData() {}
 
-    protected class SpriteData
+    public class SpriteData
     {
         public long m_AniCheck;
         public int m_AniSpeed;

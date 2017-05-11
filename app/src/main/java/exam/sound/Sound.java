@@ -3,6 +3,9 @@ package exam.sound;
 import android.content.Context;
 import android.media.MediaPlayer;
 import android.media.SoundPool;
+import android.os.Build;
+import android.support.annotation.RequiresApi;
+
 import exam.AngryBirdBug.AngryBirdBugActivity;
 
 public class Sound
@@ -20,13 +23,14 @@ public class Sound
     public SoundPool m_SoundPool;
     public MediaPlayer m_Title_Back;
 
+    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     public Sound(Context paramContext)
     {
         this.m_Title_Back = MediaPlayer.create(paramContext, 2130968580);
         this.m_Back = MediaPlayer.create(paramContext, 2130968586);
         this.m_Movie_Back = MediaPlayer.create(paramContext, 2130968578);
         this.m_Die = MediaPlayer.create(paramContext, 2130968579);
-        this.m_SoundPool = new SoundPool(5, 3, 0);
+        this.m_SoundPool = new SoundPool.Builder().setMaxStreams(10).build();
         pigdie1 = this.m_SoundPool.load(paramContext, 2130968583, 1);
         pigdie2 = this.m_SoundPool.load(paramContext, 2130968582, 1);
         reddie1 = this.m_SoundPool.load(paramContext, 2130968585, 1);

@@ -68,7 +68,7 @@ public class Player
             while (paramFloat2 > this.m_PosY + j)
             {
                 directY((int)((paramFloat2 - (this.m_PosY + j)) * 0.02D) + 2);
-                return;
+//                return;
                 if (paramFloat1 < this.m_PosX)
                 {
                     this.m_selectMotionNum = 1;

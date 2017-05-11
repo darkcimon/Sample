@@ -42,7 +42,7 @@ public class Movie
     {
         this.m_scaleX = (paramCanvas.getWidth() / 489.0F);
         this.m_scaleY = (paramCanvas.getHeight() / 323.0F);
-        paramCanvas.drawColor(-16777216);
+        paramCanvas.drawColor(Canvas.ALL_SAVE_FLAG);
         this.src = new Rect(0, 0, this.m_Img.getWidth(), this.m_Img.getHeight());
         this.dstF = new RectF(0.0F, 0.0F, this.m_Img.getWidth() * this.m_scaleX, this.m_Img.getHeight() * this.m_scaleY);
         paramCanvas.drawBitmap(this.m_Img, this.src, this.dstF, null);
@@ -66,7 +66,7 @@ public class Movie
         if (paramLong >= this.endTime + 8000L)
         {
             if (this.index >= 6) {
-                break label105;
+                return;
             }
             this.index += 1;
             this.textSpeed = 0;

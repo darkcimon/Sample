@@ -39,18 +39,19 @@ public class Ranking
         this.dstF = new RectF(0.0F, 0.0F, this.m_Img.getWidth(), this.m_Img.getHeight());
         paramCanvas.drawBitmap(this.m_Img, this.src, this.dstF, null);
         Object localObject = FastView.m_MyDBControl._openData();
-        int i;
+        int i = 0;
+        Object[] localObjectArr = {};
         if (localObject != null)
         {
-            localObject = ((String)localObject).split(" ");
-            this.paint.setColor(-16776961);
+            localObjectArr = ((String)localObject).split(" ");
+            this.paint.setColor(Paint.DEV_KERN_TEXT_FLAG);
             this.paint.setTextSize(17.0F);
             paramCanvas.drawText("   ����           ����           ����      ����", 280.0F, 121.0F, this.paint);
             i = 0;
         }
         for (;;)
         {
-            if (i >= localObject.length / 3)
+            if (i >= localObjectArr.length / 3)
             {
                 this.count = 0;
                 return;
@@ -58,7 +59,7 @@ public class Ranking
             this.count += 1;
             int j = i * 3;
             if (this.count <= 12) {
-                settingText(localObject[j] + this.str[0] + localObject[(j + 1)] + this.str[1] + localObject[(j + 2)], i * 20 + 145, this.paint, paramCanvas);
+                settingText(localObjectArr[j] + this.str[0] + localObjectArr[(j + 1)] + this.str[1] + localObjectArr[(j + 2)], i * 20 + 145, this.paint, paramCanvas);
             }
             i += 1;
         }
@@ -83,7 +84,7 @@ public class Ranking
 
     void settingText(String paramString, int paramInt, Paint paramPaint, Canvas paramCanvas)
     {
-        paramPaint.setColor(-16776961);
+        paramPaint.setColor(Paint.DITHER_FLAG);
         paramPaint.setTextSize(18.0F);
         paramCanvas.drawText(paramString, 275.0F, paramInt, paramPaint);
     }

@@ -231,7 +231,7 @@ public class ObjectPool
         {
             if (i >= this.m_arAttack.size())
             {
-                return;
+//                return;
                 ((Item)this.m_arItem.get(i)).initData();
                 i += 1;
                 break;
@@ -271,12 +271,21 @@ public class ObjectPool
             i = 0;
             label19:
             if (i < this.m_arItem.size()) {
-                break label78;
+                if (((Item)this.m_arItem.get(i)).getDie() == 0)
+                {
+                    myLog.e("DIE ITEM", "restoreImg");
+                    this.m_arItem.remove(i);
+                }
+                i += 1;
             }
             i = 0;
             label32:
             if (i < this.m_arAttack.size()) {
-                break label120;
+                ((Attack)this.m_arAttack.get(i)).updateData();
+                i += 1;
+                if (i < this.m_arAttack.size()) {
+                    return;
+                }
             }
             i = 0;
         }
@@ -284,22 +293,27 @@ public class ObjectPool
         {
             if (i >= this.m_arAttack.size())
             {
-                return;
+//                return;
                 ((Item)this.m_arItem.get(i)).updateData();
                 i += 1;
-                break;
-                label78:
-                if (((Item)this.m_arItem.get(i)).getDie() == 0)
-                {
-                    myLog.e("DIE ITEM", "restoreImg");
-                    this.m_arItem.remove(i);
+//                break;
+                if (i < this.m_arItem.size()) {
+                    if (((Item)this.m_arItem.get(i)).getDie() == 0)
+                    {
+//                        myLog.e("DIE ITEM", "restoreImg");
+                        this.m_arItem.remove(i);
+                    }
+                    i += 1;
                 }
-                i += 1;
-                break label19;
+                i = 0;
+//                break;
                 label120:
                 ((Attack)this.m_arAttack.get(i)).updateData();
                 i += 1;
-                break label32;
+                if (i < this.m_arAttack.size()) {
+                    break;
+                }
+                break;
             }
             if (((Attack)this.m_arAttack.get(i)).getDie() == 0)
             {
