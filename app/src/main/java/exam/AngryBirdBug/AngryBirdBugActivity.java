@@ -1,9 +1,6 @@
 package exam.AngryBirdBug;
 
-import MyEngine.FastView;
-import MyEngine.myLog;
 import android.app.Activity;
-import android.content.Context;
 import android.content.pm.ActivityInfo;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
@@ -14,8 +11,12 @@ import android.os.Handler;
 import android.os.Message;
 import android.os.PowerManager;
 import android.os.PowerManager.WakeLock;
-import android.view.Window;
+import android.view.WindowManager;
+
 import java.util.List;
+
+import MyEngine.FastView;
+import MyEngine.myLog;
 
 public class AngryBirdBugActivity extends Activity implements SensorEventListener
 {
@@ -75,7 +76,8 @@ public class AngryBirdBugActivity extends Activity implements SensorEventListene
         super.onCreate(paramBundle);
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
         requestWindowFeature(1);
-        getWindow().setFlags(1024, 1024);
+//        Window win = getWindow();
+        getWindow().addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN | WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
         fv = new FastView(this);
         setContentView(fv);
         this.sensorManager = ((SensorManager)getSystemService(SENSOR_SERVICE));

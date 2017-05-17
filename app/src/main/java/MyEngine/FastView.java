@@ -79,7 +79,7 @@ public class FastView
         this.m_GameResult = new GameResult(BitmapFactory.decodeResource(getResources(), 2130837530));
         this.m_GamePause = new GamePause(BitmapFactory.decodeResource(getResources(), 2130837512));
         this.vibe = ((Vibrator)paramContext.getSystemService(Context.VIBRATOR_SERVICE));
-        this.m_Sound = new Sound(paramContext);
+//        this.m_Sound = new Sound(paramContext);
         m_MyDBControl = new MyDBControl(paramContext);
         highscore(paramContext);
         this.today = new Date();
